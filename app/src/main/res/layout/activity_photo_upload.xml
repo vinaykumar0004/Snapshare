@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/gradient_background">
+
+    <!-- Photo Upload Section (Initially visible) -->
+    <LinearLayout
+        android:id="@+id/photoUploadSection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- Photographer Side -->
+        <Button
+            android:id="@+id/btnSelectPhotos"
+            android:text="Select Photos from Gallery"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/purple_primary"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etEnterGoogleDriveLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_edittext"
+            android:drawablePadding="10dp"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:hint="Enter Google Drive Link" />
+
+        <Button
+            android:id="@+id/btnSelectPhotosFromDrive"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/purple_primary"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="Select Photos from Google Drive"
+              />
+
+        <!-- Photo Receiver Side -->
+        <Button
+            android:id="@+id/btnUploadPhotoFromCamera"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/purple_primary"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="Upload Photo from Camera"
+             />
+
+        <Button
+            android:id="@+id/btnSelectPhotoFromGallery"
+            android:text="Select Photo from Gallery"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/purple_primary"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"  />
+
+        <ImageView
+            android:id="@+id/imgViewUploadedPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="377dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/border_edittext"/>
+
+        <Button
+            android:id="@+id/btnMoveToGallery"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/purple_primary"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="Get Your Photo" />
+
+        <ProgressBar
+            android:id="@+id/uploadProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_margin="24dp"
+            android:progress="0"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
+    <!-- Gallery Section (Initially hidden) -->
+    <RelativeLayout
+        android:id="@+id/gallerySection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:layout_margin="0dp" />
+
+    </RelativeLayout>
+</FrameLayout>

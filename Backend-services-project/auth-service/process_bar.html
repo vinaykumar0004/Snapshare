@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar with Verification</title>
+    <style>
+
+        body {
+            background-color: #e0cb92;
+        }
+        #progress-container {
+            width: 100%;
+            background-color: #dddddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 1%;
+        }
+        #message {
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4vw;
+        }
+
+        #progress-bar {
+            height: 20px;
+            background-color: #4caf50;
+            transition: width 0.1s ease;
+        }
+
+        #verified-message, #verified-gif {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #verified-message p {
+            font-size: 18px;
+            color: #0f9813;
+        }
+
+        #verified-gif img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">wait for few second email is being verified!!</div>
+<div id="progress-container">
+    <div id="progress-bar" style="width: 0%;"></div>
+</div>
+<div id="verified-message">
+    <p>Verification Complete!</p>
+</div>
+<div id="verified-gif">
+    <img src="verified.gif" alt="Verified">
+</div>
+
+<script>
+    const progressBar = document.getElementById('progress-bar');
+    const verifiedMessage = document.getElementById('verified-message');
+    const verifiedGif = document.getElementById('verified-gif');
+    const messagee = document.getElementById('message');
+
+    let progress = 0;
+
+    function updateProgress() {
+        progress += 1;
+        progressBar.style.width = `${progress}%`;
+        if (progress < 100) {
+            setTimeout(updateProgress, 50); // adjust the speed of the progress bar
+        } else {
+            progressBar.style.width = '100%'; // ensure progress bar reaches 100%
+            setTimeout(() => {
+                progressBar.style.display = 'none';
+                messagee.style.display = 'none';
+                verifiedMessage.style.display = 'block';
+                verifiedGif.style.display = 'block';
+            }, 500); // wait for 500ms before hiding progress bar and showing verified message and GIF
+        }
+    }
+
+    updateProgress();
+</script>
+
+</body>
+</html>
